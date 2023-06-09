@@ -2,7 +2,6 @@ package controller
 
 import (
 	"app/models"
-	"fmt"
 	"strings"
 
 	"github.com/bxcodec/faker/v4"
@@ -21,10 +20,12 @@ func GenerateUser(count int) []models.User {
 	return users
 }
 
-func SearchPhoneNumber(users []models.User, TelNumber string) {
+func SearchPhoneNumber(users []models.User, TelNumber string) []models.User {
+	var usersNumber []models.User
 	for _, user := range users {
 		if strings.HasPrefix(user.PhoneNumber, TelNumber) {
-			fmt.Println(user)
+			usersNumber = append(usersNumber, user)
 		}
 	}
+	return usersNumber
 }

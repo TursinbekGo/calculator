@@ -2,13 +2,15 @@ package main
 
 import (
 	"app/controller"
+	"fmt"
 )
 
 func main() {
 
 	users := controller.GenerateUser(100)
-	// for _, user := range users {
-	// 	fmt.Println(user)
-	// }
-	controller.SearchPhoneNumber(users, "102")
+
+	search := controller.SearchPhoneNumber(users, "102")
+	for _, user := range search {
+		fmt.Println(user)
+	}
 }
